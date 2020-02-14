@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "1f4cdc55-66d6-4097-8085-977d8172b31a",
+		"name": "wecube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9c21754-dc6e-48af-ba46-ebff205a11a2",
+						"exec": [
+							"pm.test(\"login\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"    pm.environment.set(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Origin",
+						"value": "http://111.230.161.237:29090"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"{{username}}\",\"password\":\"{{password}}\"}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/auth/v1/api/login",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"auth",
+						"v1",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my-menus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/platform/v1/my-menus",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"my-menus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resource-files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "http://{{domain}}/platform/v1/resource-files",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"resource-files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_plugin_docker",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Origin",
+						"value": "http://111.230.161.237:29090"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"host\":\"{{plugin_host}}\",\"isAllocated\":true,\"loginPassword\":\"Abcd1234\",\"loginUsername\":\"wecube\",\"name\":\"plugin_docker_host\",\"port\":\"22\",\"purpose\":\"docker host for plugin\",\"status\":\"active\",\"type\":\"docker\"}]"
+				},
+				"url": {
+					"raw": "http://{{domain}}/platform/resource/servers/create",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"resource",
+						"servers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_plugin_mysql",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Origin",
+						"value": "http://111.230.161.237:29090"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"host\":\"{{plugin_host}}\",\"isAllocated\":true,\"loginPassword\":\"Abcd1234\",\"loginUsername\":\"root\",\"name\":\"plugin_mysql_host\",\"port\":\"3306\",\"purpose\":\"mysql for plugin\",\"status\":\"active\",\"type\":\"mysql\"}]"
+				},
+				"url": {
+					"raw": "http://{{domain}}/platform/resource/servers/create",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"resource",
+						"servers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_plugin_s3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Origin",
+						"value": "http://111.230.161.237:29090"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"host\":\"{{wecube_host}}\",\"isAllocated\":true,\"loginPassword\":\"secret_key\",\"loginUsername\":\"access_key\",\"name\":\"plugin_s3\",\"port\":\"9000\",\"purpose\":\"s3 service\",\"status\":\"active\",\"type\":\"s3\"}]"
+				},
+				"url": {
+					"raw": "http://{{domain}}/platform/resource/servers/create",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"resource",
+						"servers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
