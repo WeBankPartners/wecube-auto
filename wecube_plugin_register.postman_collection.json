@@ -72,7 +72,8 @@
 					"script": {
 						"id": "7161f19b-a8ed-461e-bf53-f489f358cf77",
 						"exec": [
-							"pm.test(\"upload package ({{plugin_package_path}})\", function () {",
+							"",
+							"pm.test(\"upload package\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
@@ -139,7 +140,7 @@
 					"script": {
 						"id": "7161f19b-a8ed-461e-bf53-f489f358cf77",
 						"exec": [
-							"pm.test(\"confirm plugin ({{plugin_package_path}})\", function () {",
+							"pm.test(\"confirm plugin \", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
@@ -202,7 +203,7 @@
 					"script": {
 						"id": "0a2f76e1-8d31-4d1e-83c7-b3bf769839fa",
 						"exec": [
-							"pm.test(\"Next available port ({{{plugin_package_path}}) \", function () {",
+							"pm.test(\"Next available port\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    ",
@@ -254,7 +255,7 @@
 					"script": {
 						"id": "f5e5bc54-73a8-49e2-9e64-33cef053a4dd",
 						"exec": [
-							"pm.test(\"launch plugin container ({{plugin_package_path}})\", function () {",
+							"pm.test(\"launch plugin container\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"});"
