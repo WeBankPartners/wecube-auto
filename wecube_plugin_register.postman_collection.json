@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d9668172-cb40-4cec-8e1c-9d18e30b1db9",
+		"_postman_id": "418a8cfe-7724-4679-8fca-e7ab9ff7a309",
 		"name": "wecube_plugin_register",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -72,7 +72,7 @@
 					"script": {
 						"id": "7161f19b-a8ed-461e-bf53-f489f358cf77",
 						"exec": [
-							"pm.test(\"Your test name\", function () {",
+							"pm.test(\"upload package ({{plugin_package_path}})\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
@@ -133,6 +133,22 @@
 		},
 		{
 			"name": "confirm_package_register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7161f19b-a8ed-461e-bf53-f489f358cf77",
+						"exec": [
+							"pm.test(\"confirm plugin ({{plugin_package_path}})\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -186,7 +202,7 @@
 					"script": {
 						"id": "0a2f76e1-8d31-4d1e-83c7-b3bf769839fa",
 						"exec": [
-							"pm.test(\"Next_available_port\", function () {",
+							"pm.test(\"Next available port ({{{plugin_package_path}}) \", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    ",
@@ -238,7 +254,7 @@
 					"script": {
 						"id": "f5e5bc54-73a8-49e2-9e64-33cef053a4dd",
 						"exec": [
-							"pm.test(\"launch plugin container\", function () {",
+							"pm.test(\"launch plugin container ({{plugin_package_path}})\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"});"
