@@ -162,7 +162,7 @@
           "raw": ""
         },
         "url": {
-          "raw": "http://120.79.2.48:30001/platform/v1/packages/register/{{cur_package_id}}",
+          "raw": "http://{{domain}}/platform/v1/packages/register/{{cur_package_id}}",
           "protocol": "http",
           "host": ["120", "79", "2", "48"],
           "port": "30001",
