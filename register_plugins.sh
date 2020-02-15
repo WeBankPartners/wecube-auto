@@ -1,1 +1,1 @@
-newman run wecube_plugin_register.postman_collection.json -e demo_gz.postman_environment.json  -d plugin_packages.csv --delay-request 2000 --disable-unicode -r htmlextra --verbose | tee register.log
+newman run wecube_plugin_register.postman_collection.json -e demo_gz.postman_environment.json  -d plugin_packages.csv --delay-request 2000 --disable-unicode --reporters cli,htmlextra --reporter-htmlextra-export "newman/wecube_register_plugins.html"
