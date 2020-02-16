@@ -66,6 +66,22 @@
 		},
 		{
 			"name": "monitor_add_plugin_host",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5da3aaa-9f39-4a12-b3cc-fe75d13655c0",
+						"exec": [
+							"pm.test(\"monitor - add plugin host\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.msg).to.eql(\"Register successfully\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
