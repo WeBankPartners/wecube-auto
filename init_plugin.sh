@@ -1,0 +1,1 @@
+newman run wecube_init_plugin.postman_collection.json -e demo_gz.postman_environment.json --delay-request 2000 --verbose  --disable-unicode --reporters cli,htmlextra --reporter-htmlextra-export "newman/plugin_init.html"
