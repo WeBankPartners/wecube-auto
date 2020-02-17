@@ -525,6 +525,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "system_var_update_core_addr",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,zh-CN;q=0.9,zh;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "content-length",
+						"value": "139"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "cookie",
+						"value": "JSESSIONID=2F6F1C677FC6AE524CE88CD44120D5AD; DokuWiki=5d2b2ea77997ce7cee2a7765004242aa; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7CLdbykUFnANNJZ5pV3HtaAKvcJBM6E6QiP8zvSGS5HZk%3D"
+					},
+					{
+						"key": "host",
+						"value": "120.79.2.48:30001"
+					},
+					{
+						"key": "origin",
+						"value": "http://120.79.2.48:30001"
+					},
+					{
+						"key": "proxy-connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "referer",
+						"value": "http://120.79.2.48:30001/"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"id\":\"global__CORE_ADDR\",\"defaultValue\":\"http://{{wecube_host}}:19090\",\"name\":\"CORE_ADDR\",\"scope\":\"global\",\"source\":\"system\",\"status\":\"active\"}]"
+				},
+				"url": {
+					"raw": "http://{{domain}}/platform/v1/system-variables/update",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"system-variables",
+						"update"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
