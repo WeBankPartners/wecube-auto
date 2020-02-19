@@ -1,0 +1,13 @@
+version: '2'
+services:
+  monitor_agent:
+    image: quay.io/prometheus/node-exporter
+    restart: always
+    ports:
+      - 9100:9100
+    volumes:
+      - /:/host:ro,rslave
+    network_mode: "host"
+    pid: "host"
+    command:
+      - '--path.rootfs=/host'
