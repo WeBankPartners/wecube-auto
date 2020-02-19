@@ -140,7 +140,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"9100\"}"
+					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"29100\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register",

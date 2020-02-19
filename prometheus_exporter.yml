@@ -4,7 +4,7 @@ services:
     image: quay.io/prometheus/node-exporter
     restart: always
     ports:
-      - 9100:9100
+      - 29100:9100
     volumes:
       - /:/host:ro,rslave
     network_mode: "host"
