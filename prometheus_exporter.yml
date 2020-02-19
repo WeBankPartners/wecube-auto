@@ -7,7 +7,5 @@ services:
       - 29100:9100
     volumes:
       - /:/host:ro,rslave
-    network_mode: "host"
-    pid: "host"
     command:
       - '--path.rootfs=/host'
