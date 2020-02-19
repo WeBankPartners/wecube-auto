@@ -164,8 +164,7 @@
         "url": {
           "raw": "http://{{domain}}/platform/v1/packages/register/{{cur_package_id}}",
           "protocol": "http",
-          "host": ["120", "79", "2", "48"],
-          "port": "30001",
+          "host": ["{{domain}}"],
           "path": [
             "platform",
             "v1",
