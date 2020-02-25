@@ -82,6 +82,20 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
+						"exec": [
+							"pm.test(\"login\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
@@ -176,6 +190,21 @@
 							"console.log(resolvedBody.toString())",
 							"console.log(resolvedBody.length)",
 							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "17db247f-da0d-494b-9da8-0ec37531fe7b",
+						"exec": [
+							"pm.test(\"login\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.resultMessage).to.eql(\"Done\");",
+							"",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -278,6 +307,21 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "34fbf9e0-f6a4-49a4-9bc5-8afc621d8ccb",
+						"exec": [
+							"pm.test(\"login\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.msg).to.eql(\"Register successfully\");",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
@@ -338,7 +382,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"instance\":\"wecube_core\",\"type\":\"tomcat\",\"exporter_ip\":\"{{wecube_host}}\",\"exporter_port\":\"19101\"}"
+					"raw": "{\"instance\":\"wecube_core2\",\"type\":\"tomcat\",\"exporter_ip\":\"{{wecube_host}}\",\"exporter_port\":\"19101\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register",
