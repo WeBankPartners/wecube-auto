@@ -201,7 +201,7 @@
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
 							"    pm.expect(jsonData.resultMessage).to.eql(\"Done\");",
 							"",
 							"});"
