@@ -79,7 +79,6 @@
 							"",
 							"for(var i=0;i<jsonData.data.length;i++){",
 							"    if(jsonData.data[i].name=='SUPER_ADMIN'){",
-							"        console.log(\"id:\"+jsonData.data[i].id);",
 							"        pm.collectionVariables.set(\"super_admin_id\", jsonData.data[i].id);",
 							"    }",
 							"}"
@@ -168,8 +167,7 @@
 							"deployBodyObj.permissionToRole = permissionToRole;",
 							"",
 							"",
-							"pm.collectionVariables.set(\"proc_deploy_data\", JSON.stringify(deployBodyObj));",
-							"console.log(deployBodyObj);"
+							"pm.collectionVariables.set(\"proc_deploy_data\", JSON.stringify(deployBodyObj));"
 						],
 						"type": "text/javascript"
 					}
@@ -261,9 +259,7 @@
 							"var Property = require('postman-collection').Property;",
 							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
 							"",
-							"console.log(resolvedBody.toString())",
 							"const buf = Buffer.from(resolvedBody.toString())",
-							"console.log(buf.length)",
 							"pm.request.headers.upsert({key:\"content-length\",value:buf.length});"
 						],
 						"type": "text/javascript"
