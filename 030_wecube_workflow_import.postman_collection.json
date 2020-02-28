@@ -229,7 +229,7 @@
 						{
 							"key": "uploadFile",
 							"type": "file",
-							"src": "/D:/temp/proc-审批流程-wecube1582621485719.pds"
+							"src": "{{workflow}}"
 						}
 					]
 				},
