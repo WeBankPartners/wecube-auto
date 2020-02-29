@@ -528,6 +528,36 @@
 		},
 		{
 			"name": "system_var_update_core_addr",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39dd86ba-bcb5-42e0-845f-4590ce10ecbc",
+						"exec": [
+							"pm.test(\"update core_addr var)\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "808840e1-aed1-4ce2-9b6d-3fb032e6d1b2",
+						"exec": [
+							"var Property = require('postman-collection').Property;",
+							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
+							"",
+							"console.log(resolvedBody.toString())",
+							"const buf = Buffer.from(resolvedBody.toString())",
+							"pm.request.headers.upsert({key:\"content-length\",value:buf.length});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -546,10 +576,6 @@
 					{
 						"key": "authorization",
 						"value": "{{authorization}}"
-					},
-					{
-						"key": "content-length",
-						"value": "139"
 					},
 					{
 						"key": "content-type",
