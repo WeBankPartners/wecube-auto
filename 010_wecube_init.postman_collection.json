@@ -629,7 +629,7 @@
 					"script": {
 						"id": "39dd86ba-bcb5-42e0-845f-4590ce10ecbc",
 						"exec": [
-							"pm.test(\"update core_addr var)\", function () {",
+							"pm.test(\"update gateway server url var)\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"});"
@@ -698,7 +698,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[{\"id\":\"global__CORE_ADDR\",\"defaultValue\":\"http://{{wecube_host}}:19110\",\"name\":\"GATEWAY_URL\",\"scope\":\"global\",\"source\":\"system\",\"status\":\"active\"}]"
+					"raw": "[{\"id\":\"global__GATEWAY_URL\",\"defaultValue\":\"http://{{wecube_host}}:19110\",\"name\":\"GATEWAY_URL\",\"scope\":\"global\",\"source\":\"system\",\"status\":\"active\"}]"
 				},
 				"url": {
 					"raw": "http://{{domain}}/platform/v1/system-variables/update",
