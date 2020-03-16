@@ -64,14 +64,15 @@
           "listen": "test",
           "script": {
             "id": "7161f19b-a8ed-461e-bf53-f489f358cf77",
-            "exec": [
-              "",
-              "pm.test(\"upload package\", function () {",
-              "    var jsonData = pm.response.json();",
-              "    pm.expect(jsonData.status).to.eql(\"OK\");",
-              "    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
-              "});"
-            ],
+			"exec": [
+				"",
+				"pm.test(\"upload package\", function () {",
+				"    var jsonData = pm.response.json();",
+				"    pm.expect(jsonData.status).to.eql(\"OK\");",
+				"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
+				"    pm.collectionVariables.set(\"package_name\",jsonData.data.name);",
+				"});"
+			],
             "type": "text/javascript"
           }
         }
@@ -111,11 +112,19 @@
           ]
         },
         "url": {
-          "raw": "http://{{domain}}/platform/v1/packages",
-          "protocol": "http",
-          "host": ["{{domain}}"],
-          "path": ["platform", "v1", "packages"]
-        }
+			"raw": "http://{{domain}}/platform/v1/models/package/{{package_name}}",
+			"protocol": "http",
+			"host": [
+				"{{domain}}"
+			],
+			"path": [
+				"platform",
+				"v1",
+				"models",
+				"package",
+				"{{package_name}}"
+			]
+		}
       },
       "response": []
     },
@@ -498,6 +507,12 @@
 			"id": "5b941d00-9e1f-4692-a45a-dcbdbd093018",
 			"key": "plugin_model",
 			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1a40510a-aba4-46df-adce-86ce2d3b260d",
+			"key": "package_name",
+			"value": "wecmdb",
 			"type": "string"
 		}
 	],
