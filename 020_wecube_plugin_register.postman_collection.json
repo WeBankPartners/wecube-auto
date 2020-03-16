@@ -111,8 +111,8 @@
             }
           ]
         },
-        "url": {
-			"raw": "http://{{domain}}/platform/v1/models/package/{{package_name}}",
+		"url": {
+			"raw": "http://{{domain}}/platform/v1/packages",
 			"protocol": "http",
 			"host": [
 				"{{domain}}"
@@ -120,9 +120,7 @@
 			"path": [
 				"platform",
 				"v1",
-				"models",
-				"package",
-				"{{package_name}}"
+				"packages"
 			]
 		}
       },
@@ -390,7 +388,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{domain}}/platform/v1/models/package/wecmdb",
+					"raw": "http://{{domain}}/platform/v1/models/package/{{package_name}}",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -400,7 +398,7 @@
 						"v1",
 						"models",
 						"package",
-						"wecmdb"
+						"{{package_name}}"
 					]
 				}
 			},
