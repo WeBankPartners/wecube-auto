@@ -159,7 +159,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\": \"{{name}}\",\"emergency\": \"{{emergency}}\",\"description\": \"{{description}}\",\"attachFileId\": null,\"templateId\": \"{{template_id}}\",\"roleName\": \"{{roleId}}\",\"envType\": \"test\"}"
+					"raw": "{\"name\":\"{{name}}\",\"emergency\":\"{{emergency}}\",\"description\":\"{{description}}\",\"attachFileId\":null,\"templateId\":\"{{template_id}}\",\"roleName\":\"{{roleId}}\",\"envType\":\"test\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/service-mgmt/v1/service-requests",
