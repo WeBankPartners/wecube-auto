@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ad0edfc1-bd53-42dc-a582-9673011de504",
+		"_postman_id": "baad72ab-5f0c-400a-a6d2-1c71fc1c2bd4",
 		"name": "041_service_mgmt_request",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -159,7 +159,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"{{name}}\",\"emergency\":\"{{emergency}}\",\"description\":\"{{description}}\",\"attachFileId\":null,\"templateId\":\"{{template_id}}\",\"roleId\":\"{{roleId}}\",\"envType\":\"test\"}"
+					"raw": "{\"name\":\"{{name}}\",\"emergency\":\"{{emergency}}\",\"description\":\"{{description}}\",\"attachFileId\":null,\"templateId\":\"{{template_id}}\",\"roleName\":\"{{roleId}}\",\"envType\":\"test\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/service-mgmt/v1/service-requests",
