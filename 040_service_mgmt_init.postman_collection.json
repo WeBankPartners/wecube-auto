@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "84c1c8a8-abba-4cf0-a728-68779eb8cf0f",
+		"_postman_id": "9e71e6d2-9514-4c7f-9fe1-0136bd57eba2",
 		"name": "040_service_mgmt_init",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -383,7 +383,7 @@
 							"                body:{",
 							"                    mode: 'raw',",
 							"                    raw: JSON.stringify(",
-							"                        {\"name\":pm.iterationData.get(\"rt_name\"),\"description\":pm.iterationData.get(\"rt_desc\"),\"servicePipelineId\":pm.collectionVariables.get(\"sm_service_pipeline_id\"),\"processDefinitionKey\":procKey})",
+							"                        {\"name\":pm.iterationData.get(\"rt_name\"),\"description\":pm.iterationData.get(\"rt_desc\"),\"servicePipelineId\":pm.collectionVariables.get(\"sm_service_pipeline_id\"),\"procDefKey\":procKey})",
 							"                },",
 							"                header: {",
 							"                    'Accept': 'application/json',",
