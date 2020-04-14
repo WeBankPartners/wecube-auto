@@ -156,7 +156,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"29100\"}"
+					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"{{node_exporter_port}}\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register",
@@ -268,7 +268,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"requestId\":\"172a0e26-9f72-4662-a7f5-80443d7fd2d5\",\"inputs\":[{\"callbackParameter\":\"0014_0000000030\",\"instance_ip\":\"{{plugin_host}}\",\"port\":\"3306\",\"instance\":\"plugin_mysql1\",\"group\":\"default_mysql_group\",\"user\":\"root\",\"password\":\"Abcd1234\"}]}"
+					"raw": "{\"requestId\":\"172a0e26-9f72-4662-a7f5-80443d7fd2d5\",\"inputs\":[{\"callbackParameter\":\"0014_0000000030\",\"instance_ip\":\"{{plugin_host}}\",\"port\":\"{{plugin_mysql_port}}\",\"instance\":\"plugin_mysql1\",\"group\":\"default_mysql_group\",\"user\":\"{{plugin_mysql_user}}\",\"password\":\"{{plugin_mysql_password}}\"}]}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/mysql",
