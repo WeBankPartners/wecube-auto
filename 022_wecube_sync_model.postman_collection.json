@@ -172,10 +172,6 @@
 						"value": "{{authorization}}"
 					},
 					{
-						"key": "content-length",
-						"value": "127124"
-					},
-					{
 						"key": "content-type",
 						"value": "application/json;charset=UTF-8"
 					},
