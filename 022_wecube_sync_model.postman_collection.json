@@ -76,7 +76,7 @@
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    var model = jsonData.data;",
-							"    model.id = \"DataModel__wecmdb__2\";",
+							"    model.id = \"DataModel__wecmdb__\" + model.version;",
 							"    pm.collectionVariables.set(\"plugin_model\", JSON.stringify(model));",
 							"});"
 						],
