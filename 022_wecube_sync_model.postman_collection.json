@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9bc6bc32-191f-407e-a707-337d312c4a7f",
+		"_postman_id": "ae035bf9-cde0-4a54-9903-76d971222194",
 		"name": "022_wecube_sync_model",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -169,10 +169,6 @@
 					{
 						"key": "authorization",
 						"value": "{{authorization}}"
-					},
-					{
-						"key": "content-length",
-						"value": "127124"
 					},
 					{
 						"key": "content-type",
