@@ -88,11 +88,7 @@
 					"script": {
 						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
 						"exec": [
-							"pm.test(\"login\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
-							"",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -201,11 +197,7 @@
 					"script": {
 						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
 						"exec": [
-							"pm.test(\"login\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
-							"",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
