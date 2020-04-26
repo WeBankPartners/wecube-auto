@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d4862d9a-db9d-4c5c-96e7-de92ccecafb1",
+		"_postman_id": "fc4b4a83-8975-4358-a7f3-e160dc627ce4",
 		"name": "021_wecube_init_plugin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -156,10 +156,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"29100\"}"
+					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{plugin_host}}\",\"group\":\"default_host_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register",
+					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/host",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -169,7 +169,122 @@
 						"api",
 						"v1",
 						"agent",
-						"register"
+						"export",
+						"register",
+						"host"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "monitor_add_core_host",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cc67dc96-2f8e-400f-9f83-f83eff7bca1b",
+						"exec": [
+							"",
+							"var Property = require('postman-collection').Property;",
+							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
+							"",
+							"console.log(resolvedBody.toString())",
+							"console.log(resolvedBody.length)",
+							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
+						"exec": [
+							"pm.test(\"login\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,zh-CN;q=0.9,zh;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "content-length",
+						"value": "68"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "cookie",
+						"value": "JSESSIONID.82474486=node0hry473atc98m1pu430rnmwnx43.node0; jenkins-timestamper-offset=-28800000; JSESSIONID.7981c216=node0b2ebgpu8uhyk2wbnyhxlibk517.node0; JSESSIONID.2040468f=node01qnbgcnt79f2ycrlxi8zr5n12.node0; screenResolution=1536x864; JSESSIONID.007fd0eb=node09bhrpi6tpj9r1pk1cfbopnb6t22.node0"
+					},
+					{
+						"key": "host",
+						"value": "119.28.109.23:8090"
+					},
+					{
+						"key": "origin",
+						"value": "http://119.28.109.23:8090"
+					},
+					{
+						"key": "proxy-connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "referer",
+						"value": "http://119.28.109.23:8090/"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					},
+					{
+						"key": "x-auth-token",
+						"value": "null"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{wecube_host}}\",\"group\":\"default_host_group\"}]}"
+				},
+				"url": {
+					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/host",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"wecube-monitor",
+						"api",
+						"v1",
+						"agent",
+						"export",
+						"register",
+						"host"
 					]
 				}
 			},
