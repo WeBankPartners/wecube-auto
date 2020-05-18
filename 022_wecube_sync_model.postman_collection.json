@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9bc6bc32-191f-407e-a707-337d312c4a7f",
+		"_postman_id": "ae035bf9-cde0-4a54-9903-76d971222194",
 		"name": "022_wecube_sync_model",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -205,6 +205,84 @@
 						"platform",
 						"v1",
 						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_cmdb_int_query",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "36f81a8e-2c09-497a-abbe-0fce1c9570d2",
+						"exec": [
+							"//pm.request.body.raw = pm.collectionVariables.get(\"plugin_model\");",
+							"//console.log(pm.collectionVariables.get(\"plugin_model\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,zh-CN;q=0.9,zh;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "cookie",
+						"value": "JSESSIONID=6CE6E84E1A39B24729BD824B310824A6; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7C7qv4%2FejRF9t%2BBSBLpTCXCkXadTayMKwIRLzMiCD93xg%3D; refreshToken=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4NDM0MzYwMywidHlwZSI6InJlZnJlc2hUb2tlbiIsImNsaWVudFR5cGUiOiJVU0VSIiwiZXhwIjoxNTg0MzQ1NDAzfQ.CLWDlg7UTxlM5oV1srrHGzzNd_TYOuo6Jhs65s-zu8VXQDlE4tBE9aQ76kRq7twqsxLmJjgwHECWqLUMUsEFeQ; refreshTokenExpirationTime=1584345403236; accessToken=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4NDM0MzYwMywidHlwZSI6ImFjY2Vzc1Rva2VuIiwiY2xpZW50VHlwZSI6IlVTRVIiLCJleHAiOjE1ODQzNDQyMDMsImF1dGhvcml0eSI6IltTVVBFUl9BRE1JTixJTVBMRU1FTlRBVElPTl9XT1JLRkxPV19FWEVDVVRJT04sSU1QTEVNRU5UQVRJT05fQkFUQ0hfRVhFQ1VUSU9OLElNUExFTUVOVEFUSU9OX0FSVElGQUNUX01BTkFHRU1FTlQsTU9OSVRPUl9NQUlOX0RBU0hCT0FSRCxNT05JVE9SX01FVFJJQ19DT05GSUcsTU9OSVRPUl9DVVNUT01fREFTSEJPQVJELE1PTklUT1JfQUxBUk1fQ09ORklHLE1PTklUT1JfQUxBUk1fTUFOQUdFTUVOVCxDT0xMQUJPUkFUSU9OX1BMVUdJTl9NQU5BR0VNRU5ULENPTExBQk9SQVRJT05fV09SS0ZMT1dfT1JDSEVTVFJBVElPTixBRE1JTl9TWVNURU1fUEFSQU1TLEFETUlOX1JFU09VUkNFU19NQU5BR0VNRU5ULEFETUlOX1VTRVJfUk9MRV9NQU5BR0VNRU5ULEFETUlOX0NNREJfTU9ERUxfTUFOQUdFTUVOVCxDTURCX0FETUlOX0JBU0VfREFUQV9NQU5BR0VNRU5ULEFETUlOX1FVRVJZX0xPRyxNRU5VX0FETUlOX1BFUk1JU1NJT05fTUFOQUdFTUVOVCxNRU5VX0RFU0lHTklOR19DSV9EQVRBX01BTkFHRU1FTlQsTUVOVV9BRE1JTl9DTURCX01PREVMX01BTkFHRU1FTlQsTUVOVV9BUFBMSUNBVElPTl9BUkNISVRFQ1RVUkVfREVTSUdOLE1FTlVfSURDX1BMQU5OSU5HX0RFU0lHTixNRU5VX0FETUlOX1FVRVJZX0xPRyxNRU5VX0NNREJfREVTSUdOSU5HX0VOVU1fRU5RVUlSWSxNRU5VX0NNREJfREVTSUdOSU5HX0VOVU1fTUFOQUdFTUVOVCxNRU5VX0RFU0lHTklOR19DSV9JTlRFR1JBVEVEX1FVRVJZX0VYRUNVVElPTixNRU5VX0FQUExJQ0FUSU9OX0RFUExPWU1FTlRfREVTSUdOLE1FTlVfQ01EQl9BRE1JTl9CQVNFX0RBVEFfTUFOQUdFTUVOVCxNRU5VX0RFU0lHTklOR19DSV9EQVRBX0VOUVVJUlksTUVOVV9ERVNJR05JTkdfQ0lfSU5URUdSQVRFRF9RVUVSWV9NQU5BR0VNRU5ULE1FTlVfSURDX1JFU09VUkNFX1BMQU5OSU5HLEpPQlNfVEFTS19NQU5BR0VNRU5ULEpPQlNfU0VSVklDRV9DQVRBTE9HX01BTkFHRU1FTlRdIn0.hAV7DLUABkuIKK_IHipubgkF_WbnVBSG_kdBxwB-oCH4nuLwHwBSp3pPv24_MlMXW2KQ-qhIldNWLaaxeLwkOw; accessTokenExpirationTime=1584344203236"
+					},
+					{
+						"key": "proxy-connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"children\":[{\"attrs\":[885],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"children\":[{\"attrs\":[925],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"ciTypeId\":50,\"name\":\"3-1-应用实例-单元\",\"parentRs\":{\"attrId\":926,\"isReferedFromParent\":false}}],\"ciTypeId\":48,\"name\":\"2-1-单元-管理角色\",\"parentRs\":{\"attrId\":893,\"isReferedFromParent\":false}}],\"ciTypeId\":1,\"name\":\"管理角色\",\"attrs\":[8],\"attrAliases\":[\"状态\"],\"attrKeyNames\":[]}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://{{domain}}/wecmdb/ui/v2/intQuery/ciType/1/%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/save",
+					"protocol": "http",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"wecmdb",
+						"ui",
+						"v2",
+						"intQuery",
+						"ciType",
+						"1",
+						"%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B",
+						"save"
 					]
 				}
 			},
