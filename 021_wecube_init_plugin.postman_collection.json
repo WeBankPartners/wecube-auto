@@ -70,7 +70,7 @@
 						"exec": [
 							"pm.test(\"plugin host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
 							"",
 							"});"
 						],
@@ -147,7 +147,7 @@
 						"exec": [
 							"pm.test(\"core host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
 							"",
 							"});"
 						],
@@ -305,7 +305,7 @@
 						"exec": [
 							"pm.test(\"jmx monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
 							"",
 							"});"
 						],
