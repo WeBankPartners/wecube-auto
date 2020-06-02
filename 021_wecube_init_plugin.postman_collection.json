@@ -13,7 +13,7 @@
 					"script": {
 						"id": "c9c21754-dc6e-48af-ba46-ebff205a11a2",
 						"exec": [
-							"pm.test(\"login\", function () {",
+							"pm.test(\"login succeeded with token returned\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
@@ -30,10 +30,6 @@
 					{
 						"key": "Accept",
 						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Origin",
-						"value": "http://111.230.161.237:29090"
 					},
 					{
 						"key": "User-Agent",
@@ -68,27 +64,15 @@
 			"name": "monitor_add_plugin_host",
 			"event": [
 				{
-					"listen": "prerequest",
-					"script": {
-						"id": "cc67dc96-2f8e-400f-9f83-f83eff7bca1b",
-						"exec": [
-							"",
-							"var Property = require('postman-collection').Property;",
-							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
-							"",
-							"console.log(resolvedBody.toString())",
-							"console.log(resolvedBody.length)",
-							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
 					"listen": "test",
 					"script": {
 						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
 						"exec": [
-							""
+							"pm.test(\"plugin host monitoring registered\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -114,32 +98,12 @@
 						"value": "{{authorization}}"
 					},
 					{
-						"key": "content-length",
-						"value": "68"
-					},
-					{
 						"key": "content-type",
 						"value": "application/json;charset=UTF-8"
 					},
 					{
-						"key": "cookie",
-						"value": "JSESSIONID.82474486=node0hry473atc98m1pu430rnmwnx43.node0; jenkins-timestamper-offset=-28800000; JSESSIONID.7981c216=node0b2ebgpu8uhyk2wbnyhxlibk517.node0; JSESSIONID.2040468f=node01qnbgcnt79f2ycrlxi8zr5n12.node0; screenResolution=1536x864; JSESSIONID.007fd0eb=node09bhrpi6tpj9r1pk1cfbopnb6t22.node0"
-					},
-					{
-						"key": "host",
-						"value": "119.28.109.23:8090"
-					},
-					{
-						"key": "origin",
-						"value": "http://119.28.109.23:8090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://119.28.109.23:8090/"
 					},
 					{
 						"key": "user-agent",
@@ -177,27 +141,15 @@
 			"name": "monitor_add_core_host",
 			"event": [
 				{
-					"listen": "prerequest",
-					"script": {
-						"id": "cc67dc96-2f8e-400f-9f83-f83eff7bca1b",
-						"exec": [
-							"",
-							"var Property = require('postman-collection').Property;",
-							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
-							"",
-							"console.log(resolvedBody.toString())",
-							"console.log(resolvedBody.length)",
-							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
 					"listen": "test",
 					"script": {
 						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
 						"exec": [
-							""
+							"pm.test(\"core host monitoring registered\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.code).to.eql(0);",
+							"",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -227,24 +179,8 @@
 						"value": "application/json;charset=UTF-8"
 					},
 					{
-						"key": "cookie",
-						"value": "JSESSIONID.82474486=node0hry473atc98m1pu430rnmwnx43.node0; jenkins-timestamper-offset=-28800000; JSESSIONID.7981c216=node0b2ebgpu8uhyk2wbnyhxlibk517.node0; JSESSIONID.2040468f=node01qnbgcnt79f2ycrlxi8zr5n12.node0; screenResolution=1536x864; JSESSIONID.007fd0eb=node09bhrpi6tpj9r1pk1cfbopnb6t22.node0"
-					},
-					{
-						"key": "host",
-						"value": "119.28.109.23:8090"
-					},
-					{
-						"key": "origin",
-						"value": "http://119.28.109.23:8090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://119.28.109.23:8090/"
 					},
 					{
 						"key": "user-agent",
@@ -257,7 +193,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"type\":\"host\",\"exporter_ip\":\"{{plugin_host}}\",\"exporter_port\":\"{{node_exporter_port}}\"}"
+					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{wecube_host}}\",\"group\":\"default_host_group\"}]}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/host",
@@ -282,30 +218,13 @@
 			"name": "monitor_add_plugin_mysql",
 			"event": [
 				{
-					"listen": "prerequest",
-					"script": {
-						"id": "cc67dc96-2f8e-400f-9f83-f83eff7bca1b",
-						"exec": [
-							"",
-							"var Property = require('postman-collection').Property;",
-							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
-							"",
-							"console.log(resolvedBody.toString())",
-							"console.log(resolvedBody.length)",
-							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
 					"listen": "test",
 					"script": {
 						"id": "17db247f-da0d-494b-9da8-0ec37531fe7b",
 						"exec": [
-							"pm.test(\"login\", function () {",
+							"pm.test(\"mysql monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
-							"    pm.expect(jsonData.resultMessage).to.eql(\"Done\");",
 							"",
 							"});"
 						],
@@ -341,20 +260,8 @@
 						"value": "JSESSIONID.82474486=node0hry473atc98m1pu430rnmwnx43.node0; jenkins-timestamper-offset=-28800000; JSESSIONID.7981c216=node0b2ebgpu8uhyk2wbnyhxlibk517.node0; JSESSIONID.2040468f=node01qnbgcnt79f2ycrlxi8zr5n12.node0; screenResolution=1536x864; JSESSIONID.007fd0eb=node09bhrpi6tpj9r1pk1cfbopnb6t22.node0"
 					},
 					{
-						"key": "host",
-						"value": "119.28.109.23:8090"
-					},
-					{
-						"key": "origin",
-						"value": "http://119.28.109.23:8090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://119.28.109.23:8090/"
 					},
 					{
 						"key": "user-agent",
@@ -392,27 +299,11 @@
 			"name": "monitor_add_plugin_jmx",
 			"event": [
 				{
-					"listen": "prerequest",
-					"script": {
-						"id": "ce5ec478-ba3b-4a4f-9e56-e50357ec5746",
-						"exec": [
-							"",
-							"var Property = require('postman-collection').Property;",
-							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
-							"",
-							"console.log(resolvedBody.toString())",
-							"console.log(resolvedBody.length)",
-							"pm.request.headers.upsert({key:\"content-length\",value:resolvedBody.length});"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
 					"listen": "test",
 					"script": {
 						"id": "34fbf9e0-f6a4-49a4-9bc5-8afc621d8ccb",
 						"exec": [
-							"pm.test(\"login\", function () {",
+							"pm.test(\"jmx monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.code).to.eql(0);",
 							"    pm.expect(jsonData.msg).to.eql(\"Register successfully\");",
@@ -440,31 +331,15 @@
 					},
 					{
 						"key": "authorization",
-						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU4MjUzMTcxMCwidHlwZSI6ImFjY2Vzc1Rva2VuIiwiY2xpZW50VHlwZSI6IlVTRVIiLCJleHAiOjE1ODI1MzIzMTAsImF1dGhvcml0eSI6IltTVVBFUl9BRE1JTixJTVBMRU1FTlRBVElPTl9XT1JLRkxPV19FWEVDVVRJT04sSU1QTEVNRU5UQVRJT05fQkFUQ0hfRVhFQ1VUSU9OLElNUExFTUVOVEFUSU9OX0FSVElGQUNUX01BTkFHRU1FTlQsTU9OSVRPUl9NQUlOX0RBU0hCT0FSRCxNT05JVE9SX01FVFJJQ19DT05GSUcsTU9OSVRPUl9DVVNUT01fREFTSEJPQVJELE1PTklUT1JfQUxBUk1fQ09ORklHLE1PTklUT1JfQUxBUk1fTUFOQUdFTUVOVCxDT0xMQUJPUkFUSU9OX1BMVUdJTl9NQU5BR0VNRU5ULENPTExBQk9SQVRJT05fV09SS0ZMT1dfT1JDSEVTVFJBVElPTixBRE1JTl9TWVNURU1fUEFSQU1TLEFETUlOX1JFU09VUkNFU19NQU5BR0VNRU5ULEFETUlOX1VTRVJfUk9MRV9NQU5BR0VNRU5ULEFETUlOX0NNREJfTU9ERUxfTUFOQUdFTUVOVCxDTURCX0FETUlOX0JBU0VfREFUQV9NQU5BR0VNRU5ULEFETUlOX1FVRVJZX0xPRyxNRU5VX0FETUlOX1BFUk1JU1NJT05fTUFOQUdFTUVOVCxNRU5VX0NNREJfREVTSUdOSU5HX0VOVU1fTUFOQUdFTUVOVCxNRU5VX0FETUlOX0NNREJfTU9ERUxfTUFOQUdFTUVOVCxNRU5VX0NNREJfREVTSUdOSU5HX0VOVU1fRU5RVUlSWSxNRU5VX0FQUExJQ0FUSU9OX0FSQ0hJVEVDVFVSRV9ERVNJR04sTUVOVV9ERVNJR05JTkdfQ0lfREFUQV9NQU5BR0VNRU5ULE1FTlVfQURNSU5fUVVFUllfTE9HLE1FTlVfREVTSUdOSU5HX0NJX0lOVEVHUkFURURfUVVFUllfRVhFQ1VUSU9OLE1FTlVfREVTSUdOSU5HX0NJX0lOVEVHUkFURURfUVVFUllfTUFOQUdFTUVOVCxNRU5VX0NNREJfQURNSU5fQkFTRV9EQVRBX01BTkFHRU1FTlQsTUVOVV9JRENfUExBTk5JTkdfREVTSUdOLE1FTlVfSURDX1JFU09VUkNFX1BMQU5OSU5HLE1FTlVfQVBQTElDQVRJT05fREVQTE9ZTUVOVF9ERVNJR04sTUVOVV9ERVNJR05JTkdfQ0lfREFUQV9FTlFVSVJZLEpPQlNfVEFTS19NQU5BR0VNRU5ULEpPQlNfU0VSVklDRV9DQVRBTE9HX01BTkFHRU1FTlRdIn0.fdCddg2beMmFBO7bpQ0zCOrWYss4zfuszSvSbxvIOgMx-kncy4pbw_5roN14DTeVW2WYO9OCpPuZP_eUYQk2tA"
+						"value": "{{authorization}}"
 					},
 					{
 						"key": "content-type",
 						"value": "application/json;charset=UTF-8"
 					},
 					{
-						"key": "cookie",
-						"value": "DokuWiki=5d2b2ea77997ce7cee2a7765004242aa; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7C3n9TSsKYaTCdKnw6FZCGOJU54T9UGLqu%2B%2BQfOaY0Dkk%3D"
-					},
-					{
-						"key": "host",
-						"value": "120.79.2.48:29090"
-					},
-					{
-						"key": "origin",
-						"value": "http://120.79.2.48:29090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://120.79.2.48:29090/"
 					},
 					{
 						"key": "user-agent",
@@ -477,10 +352,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"instance\":\"wecube_core2\",\"type\":\"tomcat\",\"exporter_ip\":\"{{wecube_host}}\",\"exporter_port\":\"19101\"}"
+					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"\",\"instance_ip\":\"{{core_host}}\",\"port\":\"{{core_jmx_port}}\",\"instance\":\"platform-core\",\"group\":\"default_java_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register",
+					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register/java",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -490,7 +365,8 @@
 						"api",
 						"v1",
 						"agent",
-						"register"
+						"register",
+						"java"
 					]
 				}
 			},
