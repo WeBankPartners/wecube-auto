@@ -70,7 +70,7 @@
 						"exec": [
 							"pm.test(\"plugin host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
 							"",
 							"});"
 						],
@@ -147,7 +147,7 @@
 						"exec": [
 							"pm.test(\"core host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
 							"",
 							"});"
 						],
@@ -305,8 +305,7 @@
 						"exec": [
 							"pm.test(\"jmx monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.eql(0);",
-							"    pm.expect(jsonData.msg).to.eql(\"Register successfully\");",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
 							"",
 							"});"
 						],
@@ -355,7 +354,7 @@
 					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"\",\"instance_ip\":\"{{core_host}}\",\"port\":\"{{core_jmx_port}}\",\"instance\":\"platform-core\",\"group\":\"default_java_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/register/java",
+					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/java",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -365,6 +364,7 @@
 						"api",
 						"v1",
 						"agent",
+						"export",
 						"register",
 						"java"
 					]
