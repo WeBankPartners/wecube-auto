@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "34ddfb16-9083-4aba-9811-36a1bc003956",
+		"_postman_id": "e90ca97e-1313-46f9-8290-2f7ef6625347",
 		"name": "030_wecube_workflow_import",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c9c21754-dc6e-48af-ba46-ebff205a11a2",
+						"id": "1f93a8ab-a2f8-43f8-8060-fff3a7d5d431",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -70,7 +70,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "01a8e26c-4fc2-4bc9-8885-9354e36956fa",
+						"id": "325f8706-7ca1-44f9-b7d2-9799996e76ce",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.test(\"get roles\", function () {",
@@ -112,16 +112,8 @@
 						"value": "JSESSIONID=056A909B5F81467D8FB72D813DCE8184; DokuWiki=5d2b2ea77997ce7cee2a7765004242aa; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7Csu%2F1dHAKO8iuiDLvyEESlg8lAO3SfH8CXKDut%2B3yZ64%3D"
 					},
 					{
-						"key": "host",
-						"value": "120.79.2.48:29090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://120.79.2.48:29090/"
 					},
 					{
 						"key": "user-agent",
@@ -150,7 +142,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "de423695-11cc-4843-838f-fc2ce0ac582b",
+						"id": "6ecc8496-1915-4a69-8809-d5200c850f71",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.test(\"import proc\", function () {",
@@ -203,20 +195,8 @@
 						"value": "JSESSIONID=1995CDDFCC179155999553EB702ADFF4; DokuWiki=5d2b2ea77997ce7cee2a7765004242aa; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7Csu%2F1dHAKO8iuiDLvyEESlg8lAO3SfH8CXKDut%2B3yZ64%3D"
 					},
 					{
-						"key": "host",
-						"value": "120.79.2.48:29090"
-					},
-					{
-						"key": "origin",
-						"value": "http://120.79.2.48:29090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://120.79.2.48:29090/"
 					},
 					{
 						"key": "user-agent",
@@ -256,7 +236,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f56dc95c-b346-40b2-8eac-f91a1a9da6f8",
+						"id": "41fa86c4-224c-4bd0-97da-d177d638dc08",
 						"exec": [
 							"var Property = require('postman-collection').Property;",
 							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
@@ -298,20 +278,8 @@
 						"value": "JSESSIONID=1995CDDFCC179155999553EB702ADFF4; DokuWiki=5d2b2ea77997ce7cee2a7765004242aa; DW68700bfd16c2027de7de74a5a8202a6f=Z3JheQ%3D%3D%7C1%7Csu%2F1dHAKO8iuiDLvyEESlg8lAO3SfH8CXKDut%2B3yZ64%3D"
 					},
 					{
-						"key": "host",
-						"value": "120.79.2.48:29090"
-					},
-					{
-						"key": "origin",
-						"value": "http://120.79.2.48:29090"
-					},
-					{
 						"key": "proxy-connection",
 						"value": "keep-alive"
-					},
-					{
-						"key": "referer",
-						"value": "http://120.79.2.48:29090/"
 					},
 					{
 						"key": "user-agent",
@@ -344,7 +312,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6732249e-c9dc-4414-8134-ed69956fde74",
+				"id": "b86679dd-d0d7-40df-8d48-3c9500a40da2",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -354,7 +322,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7378add3-cb7c-4f74-bf0a-59ae4f6c156a",
+				"id": "54de4aaf-a55d-4504-aed1-aee10a8a4439",
 				"type": "text/javascript",
 				"exec": [
 					""
