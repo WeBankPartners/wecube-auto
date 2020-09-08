@@ -11,13 +11,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c7a59dfe-61ec-4463-b6bc-d21ef8c487e6",
+						"id": "d91e8571-a185-4463-a395-5d701e75cba4",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
-							"    ",
 							"});"
 						],
 						"type": "text/javascript"
@@ -28,25 +27,26 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Origin",
-						"value": "http://111.230.161.237:29090"
-					},
-					{
 						"key": "User-Agent",
 						"value": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"
 					},
 					{
 						"key": "Content-Type",
-						"value": "application/json;charset=UTF-8"
+						"value": "multipart/form-data; boundary=----WebKitFormBoundary6PjRUDGcKfHHz8W4"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"{{username}}\",\"password\":\"{{password}}\"}"
+					"raw": "{\"username\":\"{{username}}\",\"password\":\"{{password}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://{{domain}}/auth/v1/api/login",
@@ -105,7 +105,12 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"keyName\":\"{{plugin_package_name}}\"}"
+					"raw": "{\"keyName\":\"{{plugin_package_name}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://{{domain}}/platform/v1/plugin-artifacts/pull-requests",
