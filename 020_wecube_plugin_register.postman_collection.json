@@ -108,7 +108,7 @@
 					"raw": "{\"keyName\":\"{{plugin_package_name}}\"}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/platform/v1/packages",
+					"raw": "http://{{domain}}/platform/v1/plugin-artifacts/pull-requests",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -116,7 +116,8 @@
 					"path": [
 						"platform",
 						"v1",
-						"packages"
+						"plugin-artifacts",
+						"pull-requests"
 					]
 				}
 			},
