@@ -1,7 +1,7 @@
 plugin_package_path
 /root/wecube_plugin_package/wecube-plugins-wecmdb-v1.5.2.zip
 /root/wecube_plugin_package/wecube-plugins-qcloud-v1.8.9.zip
-/root/wecube_plugin_package/service-mgmt-v0.6.1.zip
+/root/wecube_plugin_package/wecube-plugins-service-mgmt-v0.6.1.zip
 /root/wecube_plugin_package/wecube-plugins-saltstack-v1.10.1.zip
-/root/wecube_plugin_package/wecube-monitor-v1.7.1.zip
+/root/wecube_plugin_package/wecube-plugins-monitor-v1.7.1.zip
 /root/wecube_plugin_package/wecube-plugins-artifacts-v0.4.2.zip
