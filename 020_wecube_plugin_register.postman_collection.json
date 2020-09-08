@@ -128,7 +128,7 @@
 					"script": {
 						"id": "7daac543-d0c8-4895-adfc-a4d628c8156b",
 						"exec": [
-							"pm.test(\"Next available port\", function () {",
+							"pm.test(\"get package id\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.packageId);",
