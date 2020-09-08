@@ -73,6 +73,7 @@
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_request_id\", jsonData.data.requestId);",
+							"    setTimeout(function(){ console.info(\"wait 60s\") }, 60000);",
 							"});"
 						],
 						"type": "text/javascript"
