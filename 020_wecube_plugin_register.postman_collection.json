@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5f5cfde5-6ca9-47d9-baa5-2a83f959ff1a",
+		"_postman_id": "c458127e-fb20-4d2b-a660-b2d9d9108669",
 		"name": "020_wecube_plugin_register",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d91e8571-a185-4463-a395-5d701e75cba4",
+						"id": "60ec41b5-8788-4a6a-bd95-853c73490fe9",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -66,7 +66,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab968696-1822-4d65-8d7b-6b035555e829",
+						"id": "1c9528f0-50d8-4322-b4aa-69570e186061",
 						"exec": [
 							"",
 							"pm.test(\"upload package\", function () {",
@@ -127,16 +127,16 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7daac543-d0c8-4895-adfc-a4d628c8156b",
+						"id": "9e68446e-9e32-48df-885f-ded93710f6fb",
 						"exec": [
 							"pm.test(\"get package id\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    var curPackageId = jsonData.data.packageId",
 							"    pm.environment.set(\"cur_package_id\", curPackageId);",
-							"    if (!jsonData.data.packageId) {",
-							"        for (i=0; i<30; i++) {",
-							"            setTimeout(function(){ console.info(\"wait 10s\") }, 10000);",
+							"    if (!curPackageId) {",
+							"        var tmpInterval = setInterval(function(){",
+							"            console.info(\"wait 5s\")",
 							"            pm.sendRequest({",
 							"                url: \"http://\"+ pm.environment.get(\"domain\") + \"/platform/v1/plugin-artifacts/pull-requests/\" + pm.environment.get(\"cur_package_request_id\"),",
 							"                method: 'GET',",
@@ -152,9 +152,9 @@
 							"            });",
 							"            if (curPackageId) {",
 							"                pm.environment.set(\"cur_package_id\", curPackageId);",
-							"                break;",
+							"                clearInterval(tmpInterval);",
 							"            }",
-							"        }",
+							"        }, 5000);",
 							"    }",
 							"});"
 						],
@@ -201,7 +201,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "33271aef-d3c2-4cfe-bfd1-c5fd219c4df1",
+						"id": "f63d560c-fdbb-41a9-9d23-174d2d8cba3c",
 						"exec": [
 							"pm.test(\"confirm plugin \", function () {",
 							"    var jsonData = pm.response.json();",
@@ -260,7 +260,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "18501a0c-fee3-47d9-a882-dfc78062f294",
+						"id": "fcd49956-5b61-4bf4-bac3-5c82d5995730",
 						"exec": [
 							"pm.test(\"Next available port\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -312,7 +312,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2e704662-ed3b-4812-bd68-8ec3026bb032",
+						"id": "024ded05-4c80-48a7-9a33-6ea59858ef06",
 						"exec": [
 							"pm.test(\"launch plugin container\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -411,7 +411,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0d8a5451-a573-48c5-bf48-89d1802df88b",
+						"id": "01fa090e-8580-453b-91ca-773e05d81316",
 						"exec": [
 							"pm.test(\"plugin config import\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -449,8 +449,8 @@
 					"formdata": [
 						{
 							"key": "xml-file",
-							"src": "/root/best_practice/plugin/{{cur_package_id}}.xml",
-							"type": "file"
+							"type": "file",
+							"src": "/root/best_practice/plugin/{{cur_package_id}}.xml"
 						}
 					]
 				},
