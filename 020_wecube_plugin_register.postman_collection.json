@@ -73,7 +73,7 @@
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_request_id\", jsonData.data.requestId);",
-							"    setTimeout(function(){ console.info(\"wait 60s\") }, 60000);",
+							"    setTimeout(function(){ console.info(\"wait 120s\") }, 120000);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -134,7 +134,7 @@
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    var curPackageId = jsonData.data.packageId",
 							"    pm.environment.set(\"cur_package_id\", curPackageId);",
-							"    if (curPackageId===null) {",
+							"    if (!jsonData.data.packageId) {",
 							"        for (i=0; i<30; i++) {",
 							"            setTimeout(function(){ console.info(\"wait 10s\") }, 10000);",
 							"            pm.sendRequest({",
