@@ -449,8 +449,8 @@
 					"formdata": [
 						{
 							"key": "xml-file",
-							"value": "/root/best_practice/plugin/{{cur_package_id}}.xml",
-							"type": "text"
+							"src": "/root/best_practice/plugin/{{cur_package_id}}.xml",
+							"type": "file"
 						}
 					]
 				},
