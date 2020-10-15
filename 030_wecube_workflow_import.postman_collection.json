@@ -295,13 +295,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{domain}}/service-mgmt/v1/process/definitions/{{proc_deploy_id}}/detail",
+					"raw": "http://{{domain}}/platform/v1/process/definitions/{{proc_deploy_id}}/detail",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"service-mgmt",
+						"platform",
 						"v1",
 						"process",
 						"definitions",
