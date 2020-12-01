@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fc4b4a83-8975-4358-a7f3-e160dc627ce4",
+		"_postman_id": "41bc1cb8-08ed-42a7-99da-a666b382b4cd",
 		"name": "021_wecube_init_plugin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c9c21754-dc6e-48af-ba46-ebff205a11a2",
+						"id": "af225e50-147a-4505-8d1d-49597fad82a7",
 						"exec": [
 							"pm.test(\"login succeeded with token returned\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -66,7 +66,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
+						"id": "2f401c55-b5f7-4762-8ef8-f6464df33e6c",
 						"exec": [
 							"pm.test(\"plugin host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -119,13 +119,13 @@
 					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{plugin_host}}\",\"group\":\"default_host_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/host",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/host",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"wecube-monitor",
+						"monitor",
 						"api",
 						"v1",
 						"agent",
@@ -143,7 +143,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4b06c0ef-caa3-4549-8c6c-aa2e62907d4e",
+						"id": "582a2395-eefb-4889-99e0-f4c9d021bd68",
 						"exec": [
 							"pm.test(\"core host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -196,13 +196,13 @@
 					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{wecube_host}}\",\"group\":\"default_host_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/host",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/host",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"wecube-monitor",
+						"monitor",
 						"api",
 						"v1",
 						"agent",
@@ -220,7 +220,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "17db247f-da0d-494b-9da8-0ec37531fe7b",
+						"id": "1b4e18b4-3810-4e8d-a382-b1710d89fa11",
 						"exec": [
 							"pm.test(\"mysql monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -277,13 +277,13 @@
 					"raw": "{\"requestId\":\"172a0e26-9f72-4662-a7f5-80443d7fd2d5\",\"inputs\":[{\"callbackParameter\":\"0014_0000000030\",\"instance_ip\":\"{{plugin_mysql_host}}\",\"port\":\"{{plugin_mysql_port}}\",\"instance\":\"plugin_mysql1\",\"group\":\"default_mysql_group\",\"user\":\"{{plugin_mysql_user}}\",\"password\":\"{{plugin_mysql_password}}\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/mysql",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/mysql",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"wecube-monitor",
+						"monitor",
 						"api",
 						"v1",
 						"agent",
@@ -301,7 +301,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "34fbf9e0-f6a4-49a4-9bc5-8afc621d8ccb",
+						"id": "ecebd6f9-6183-4877-b85b-306438757f16",
 						"exec": [
 							"pm.test(\"jmx monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -354,13 +354,13 @@
 					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"\",\"instance_ip\":\"{{core_host}}\",\"port\":\"{{core_jmx_port}}\",\"instance\":\"platform-core\",\"group\":\"default_java_group\"}]}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/wecube-monitor/api/v1/agent/export/register/java",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/java",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"wecube-monitor",
+						"monitor",
 						"api",
 						"v1",
 						"agent",
