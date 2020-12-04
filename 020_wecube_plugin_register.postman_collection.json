@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c458127e-fb20-4d2b-a660-b2d9d9108669",
+		"_postman_id": "8f1e4a75-a7ce-4bbc-8c45-9b85560386dc",
 		"name": "020_wecube_plugin_register",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,12 +11,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "60ec41b5-8788-4a6a-bd95-853c73490fe9",
+						"id": "2b7a84bb-aeca-454b-92c8-fcb9c933d027",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"authorization\", postman.getResponseHeader(\"Authorization\"));",
+							"    pm.environment.set(\"keepgoing\", \"1\");",
 							"});"
 						],
 						"type": "text/javascript"
@@ -66,7 +67,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1c9528f0-50d8-4322-b4aa-69570e186061",
+						"id": "444dde1e-9804-47fa-b72d-737507212402",
 						"exec": [
 							"",
 							"pm.test(\"upload package\", function () {",
@@ -127,7 +128,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9e68446e-9e32-48df-885f-ded93710f6fb",
+						"id": "a24c4978-7d41-4a2a-9832-7d39b941fe41",
 						"exec": [
 							"pm.test(\"get package id\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -135,7 +136,13 @@
 							"    var curPackageId = jsonData.data.packageId",
 							"    pm.environment.set(\"cur_package_id\", curPackageId);",
 							"    if (!curPackageId) {",
+							"        var countNum = 0",
 							"        var tmpInterval = setInterval(function(){",
+							"            if (countNum >= 60) {",
+							"                pm.environment.set(\"keepgoing\", \"0\");",
+							"                clearInterval(tmpInterval);",
+							"            }",
+							"            countNum = countNum + 1",
 							"            console.info(\"wait 5s\")",
 							"            pm.sendRequest({",
 							"                url: \"http://\"+ pm.environment.get(\"domain\") + \"/platform/v1/plugin-artifacts/pull-requests/\" + pm.environment.get(\"cur_package_request_id\"),",
@@ -201,9 +208,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f63d560c-fdbb-41a9-9d23-174d2d8cba3c",
+						"id": "848ea4ef-68ef-4f9c-ad17-dc7bf424c5f7",
 						"exec": [
 							"pm.test(\"confirm plugin \", function () {",
+							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
+							"        return",
+							"    }",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
@@ -260,9 +270,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fcd49956-5b61-4bf4-bac3-5c82d5995730",
+						"id": "fe7aea31-92ef-49b5-8f9a-241411843498",
 						"exec": [
 							"pm.test(\"Next available port\", function () {",
+							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
+							"        return",
+							"    }",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    ",
@@ -312,9 +325,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "024ded05-4c80-48a7-9a33-6ea59858ef06",
+						"id": "abf2a70b-4bfc-4480-bbc6-356b199d1bcc",
 						"exec": [
 							"pm.test(\"launch plugin container\", function () {",
+							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
+							"        return",
+							"    }",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    ",
@@ -411,9 +427,12 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "01fa090e-8580-453b-91ca-773e05d81316",
+						"id": "10578da2-1691-4b03-b73e-9414c7d67c48",
 						"exec": [
 							"pm.test(\"plugin config import\", function () {",
+							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
+							"        return",
+							"    }",
 							"    var jsonData = pm.response.json();",
 							"    console.info(jsonData.status);",
 							"});"
