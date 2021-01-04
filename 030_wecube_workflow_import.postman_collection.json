@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2103bfcd-f221-41ef-9409-f33ceadb408a",
+		"_postman_id": "12054e66-ec1b-401d-9eee-bc324cb132ae",
 		"name": "030_wecube_workflow_import",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c857c13b-1550-4028-83f4-e3167252b215",
+						"id": "710accdf-34de-4aa0-a414-4c88bfbb8d38",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -70,7 +70,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0b28a673-a104-4d59-a358-fd83cb37bb1f",
+						"id": "04deca0c-205c-4ddc-84a7-aa984c5cafdd",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.test(\"get roles\", function () {",
@@ -121,16 +121,16 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{domain}}/service-mgmt/v1/core-resources/roles",
+					"raw": "http://{{domain}}/platform/v1/roles/retrieve",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"service-mgmt",
+						"platform",
 						"v1",
-						"core-resources",
-						"roles"
+						"roles",
+						"retrieve"
 					]
 				}
 			},
@@ -142,7 +142,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e6886481-a820-410c-9b3f-5209247440c0",
+						"id": "92432508-ce22-44f4-ae41-9f92453e04dc",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.test(\"import proc\", function () {",
@@ -240,7 +240,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dcd4ea36-a39f-470f-b4b4-6cbde81aedfd",
+						"id": "f22ebf82-c729-4977-b5f0-77a7d6820acb",
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.test(\"get proc detail\", function () {",
@@ -324,7 +324,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e42e9510-ecc1-4f36-af27-0f42a97b3b71",
+						"id": "5b5604e0-1385-45cd-9b4e-3020fa9cc8ec",
 						"exec": [
 							"var Property = require('postman-collection').Property;",
 							"var resolvedBody = Property.replaceSubstitutions(pm.request.body.raw, pm.variables.toObject())",
@@ -400,7 +400,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "3d5a5ada-d967-4bfb-b377-42d7691b67e0",
+				"id": "4c28162b-c34b-406b-9bdc-c2b800d04ef9",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -410,7 +410,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7acd1d19-6030-49d7-a279-37707272ed3b",
+				"id": "c0709e8f-54a2-4e69-ba64-6e3223e0e868",
 				"type": "text/javascript",
 				"exec": [
 					""
