@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "41bc1cb8-08ed-42a7-99da-a666b382b4cd",
+		"_postman_id": "9aeeefe2-20d3-4747-a9be-8f87c399d063",
 		"name": "021_wecube_init_plugin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "af225e50-147a-4505-8d1d-49597fad82a7",
 						"exec": [
 							"pm.test(\"login succeeded with token returned\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -66,11 +65,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2f401c55-b5f7-4762-8ef8-f6464df33e6c",
 						"exec": [
 							"pm.test(\"plugin host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"",
 							"});"
 						],
@@ -116,10 +114,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{plugin_host}}\",\"group\":\"default_host_group\"}]}"
+					"raw": "{\"type\":\"host\",\"ip\":\"{{plugin_host}}\",\"port\":\"9100\",\"agent_manager\":false,\"exporter\":false}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/host",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/register",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -129,9 +127,7 @@
 						"api",
 						"v1",
 						"agent",
-						"export",
-						"register",
-						"host"
+						"register"
 					]
 				}
 			},
@@ -143,11 +139,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "582a2395-eefb-4889-99e0-f4c9d021bd68",
 						"exec": [
 							"pm.test(\"core host monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"",
 							"});"
 						],
@@ -193,10 +188,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"1\",\"host_ip\":\"{{wecube_host}}\",\"group\":\"default_host_group\"}]}"
+					"raw": "{\"type\":\"host\",\"ip\":\"{{wecube_host}}\",\"port\":\"9100\",\"agent_manager\":false,\"exporter\":false}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/host",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/register",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -206,9 +201,7 @@
 						"api",
 						"v1",
 						"agent",
-						"export",
-						"register",
-						"host"
+						"register"
 					]
 				}
 			},
@@ -220,11 +213,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1b4e18b4-3810-4e8d-a382-b1710d89fa11",
 						"exec": [
 							"pm.test(\"mysql monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"",
 							"});"
 						],
@@ -274,10 +266,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"requestId\":\"172a0e26-9f72-4662-a7f5-80443d7fd2d5\",\"inputs\":[{\"callbackParameter\":\"0014_0000000030\",\"instance_ip\":\"{{plugin_mysql_host}}\",\"port\":\"{{plugin_mysql_port}}\",\"instance\":\"plugin_mysql1\",\"group\":\"default_mysql_group\",\"user\":\"{{plugin_mysql_user}}\",\"password\":\"{{plugin_mysql_password}}\"}]}"
+					"raw": "{\"type\":\"mysql\",\"name\":\"plugin_mysql1\",\"ip\":\"{{plugin_mysql_host}}\",\"port\":\"{{plugin_mysql_port}}\",\"user\":\"{{plugin_mysql_user}}\",\"password\":\"{{plugin_mysql_password}}\",\"agent_manager\":true,\"exporter\":false}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/mysql",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/register",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -287,9 +279,7 @@
 						"api",
 						"v1",
 						"agent",
-						"export",
-						"register",
-						"mysql"
+						"register"
 					]
 				}
 			},
@@ -301,11 +291,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ecebd6f9-6183-4877-b85b-306438757f16",
 						"exec": [
 							"pm.test(\"jmx monitoring registered\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.resultCode).to.eql(\"0\");",
+							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"",
 							"});"
 						],
@@ -351,10 +340,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"requestId\":\"1\",\"inputs\":[{\"callbackParameter\":\"\",\"instance_ip\":\"{{core_host}}\",\"port\":\"{{core_jmx_port}}\",\"instance\":\"platform-core\",\"group\":\"default_java_group\"}]}"
+					"raw": "{\"type\":\"java\",\"name\":\"platform-core\",\"ip\":\"{{core_host}}\",\"port\":\"{{core_jmx_port}}\",\"user\":\"root\",\"password\":\"root\",\"agent_manager\":true,\"exporter\":false}"
 				},
 				"url": {
-					"raw": "http://{{domain}}/monitor/api/v1/agent/export/register/java",
+					"raw": "http://{{domain}}/monitor/api/v1/agent/register",
 					"protocol": "http",
 					"host": [
 						"{{domain}}"
@@ -364,14 +353,11 @@
 						"api",
 						"v1",
 						"agent",
-						"export",
-						"register",
-						"java"
+						"register"
 					]
 				}
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
