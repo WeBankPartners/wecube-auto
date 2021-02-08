@@ -251,7 +251,7 @@
 							"}",
 							"",
 							"var deployBodyObj = jsonData.data;",
-							"if (deployBodyObj.rootEntity == \"wecube-monitor:alarm\") {",
+							"if (deployBodyObj.rootEntity == \"monitor:alarm\") {",
 							"    permissionToRole.USE = []",
 							"}",
 							"deployBodyObj.permissionToRole = permissionToRole;",

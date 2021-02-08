@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2b7a84bb-aeca-454b-92c8-fcb9c933d027",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -67,7 +66,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "444dde1e-9804-47fa-b72d-737507212402",
 						"exec": [
 							"",
 							"pm.test(\"upload package\", function () {",
@@ -128,7 +126,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a24c4978-7d41-4a2a-9832-7d39b941fe41",
 						"exec": [
 							"pm.test(\"get package id\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -208,7 +205,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "848ea4ef-68ef-4f9c-ad17-dc7bf424c5f7",
 						"exec": [
 							"pm.test(\"confirm plugin \", function () {",
 							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
@@ -217,6 +213,7 @@
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.status).to.eql(\"OK\");",
 							"    pm.environment.set(\"cur_package_id\", jsonData.data.id);",
+							"    pm.environment.set(\"cur_package_name\", jsonData.data.name);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -270,7 +267,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fe7aea31-92ef-49b5-8f9a-241411843498",
 						"exec": [
 							"pm.test(\"Next available port\", function () {",
 							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
@@ -325,7 +321,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "abf2a70b-4bfc-4480-bbc6-356b199d1bcc",
 						"exec": [
 							"pm.test(\"launch plugin container\", function () {",
 							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
@@ -427,7 +422,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "10578da2-1691-4b03-b73e-9414c7d67c48",
 						"exec": [
 							"pm.test(\"plugin config import\", function () {",
 							"    if(pm.environment.get(\"keepgoing\") == \"0\") {",
@@ -469,7 +463,7 @@
 						{
 							"key": "xml-file",
 							"type": "file",
-							"src": "/root/best_practice/plugin/{{cur_package_id}}.xml"
+							"src": "/root/best_practice/plugin/{{cur_package_name}}.xml"
 						}
 					]
 				},
@@ -491,6 +485,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
