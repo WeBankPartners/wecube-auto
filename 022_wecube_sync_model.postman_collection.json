@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ae035bf9-cde0-4a54-9903-76d971222194",
+		"_postman_id": "17ceda70-0707-4f4d-9449-c4a6057a100b",
 		"name": "022_wecube_sync_model",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c9c21754-dc6e-48af-ba46-ebff205a11a2",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -46,7 +45,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"{{username}}\",\"password\":\"{{password}}\"}"
+					"raw": "{\"username\":\"umadmin\",\"password\":\"umadmin\"}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/auth/v1/api/login",
@@ -70,7 +69,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "27c0edbe-faa6-4109-ba07-6878b357f857",
 						"exec": [
 							"pm.test(\"sync plugin data model\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -143,7 +141,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "36f81a8e-2c09-497a-abbe-0fce1c9570d2",
 						"exec": [
 							"//pm.request.body.raw = pm.collectionVariables.get(\"plugin_model\");",
 							"//console.log(pm.collectionVariables.get(\"plugin_model\"));"
@@ -190,10 +187,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{{plugin_model}}",
-					"options": {
-						"raw": {}
-					}
+					"raw": "{{plugin_model}}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/platform/v1/models",
@@ -216,7 +210,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "36f81a8e-2c09-497a-abbe-0fce1c9570d2",
 						"exec": [
 							"//pm.request.body.raw = pm.collectionVariables.get(\"plugin_model\");",
 							"//console.log(pm.collectionVariables.get(\"plugin_model\"));"
@@ -263,10 +256,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"children\":[{\"attrs\":[885],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"children\":[{\"attrs\":[925],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"ciTypeId\":50,\"name\":\"3-1-应用实例-单元\",\"parentRs\":{\"attrId\":926,\"isReferedFromParent\":false}}],\"ciTypeId\":48,\"name\":\"2-1-单元-管理角色\",\"parentRs\":{\"attrId\":893,\"isReferedFromParent\":false}}],\"ciTypeId\":1,\"name\":\"管理角色\",\"attrs\":[8],\"attrAliases\":[\"状态\"],\"attrKeyNames\":[]}",
-					"options": {
-						"raw": {}
-					}
+					"raw": "{\"children\":[{\"attrs\":[885],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"children\":[{\"attrs\":[925],\"attrAliases\":[\"编码\"],\"attrKeyNames\":[],\"ciTypeId\":50,\"name\":\"3-1-应用实例-单元\",\"parentRs\":{\"attrId\":926,\"isReferedFromParent\":false}}],\"ciTypeId\":48,\"name\":\"2-1-单元-管理角色\",\"parentRs\":{\"attrId\":893,\"isReferedFromParent\":false}}],\"ciTypeId\":1,\"name\":\"管理角色\",\"attrs\":[8],\"attrAliases\":[\"状态\"],\"attrKeyNames\":[]}"
 				},
 				"url": {
 					"raw": "http://{{domain}}/wecmdb/ui/v2/intQuery/ciType/1/%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B/save",
@@ -293,7 +283,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "abca35e0-cb45-42b7-b857-971646106450",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -303,7 +292,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1aa7cf4a-8556-4517-944f-c56657a685bb",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -313,11 +301,9 @@
 	],
 	"variable": [
 		{
-			"id": "08bda6f3-8f3d-43b9-a937-ab64d66466b6",
 			"key": "plugin_model",
 			"value": "",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
