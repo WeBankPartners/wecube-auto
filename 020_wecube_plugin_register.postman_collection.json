@@ -111,7 +111,7 @@
 						{
 							"key": "zip-file",
 							"type": "file",
-							"src": "/data/wecube_local_package/{{plugin_package_name}}.zip"
+							"src": "/data/wecube_local_package/{{plugin_package_name}}"
 						}
 					]
 				},
