@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e25b35e8-43ee-4eb7-baab-8f5e55dc89f4",
+		"_postman_id": "d2a435e3-32eb-4401-9343-29ecdaaf505e",
 		"name": "010_wecube_init",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fb0fdd81-0878-452e-8253-57df2598035a",
 						"exec": [
 							"pm.test(\"login\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -70,7 +69,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6cf2c814-7c03-42b9-8f60-beface9ebe32",
 						"exec": [
 							"pm.test(\"my menus\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -118,7 +116,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "29a770d6-5d7e-4a8f-b4dd-69418425200a",
 						"exec": [
 							"pm.test(\"resource file\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -166,7 +163,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c6b0618d-d42f-469f-9fb4-eb0639051381",
 						"exec": [
 							"pm.test(\"insert plugin docker\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -227,7 +223,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a5f16cd6-cfb8-432f-b281-78c6eab69c10",
 						"exec": [
 							"pm.test(\"insert plugin mysql\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -288,7 +283,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "db010757-8734-4c05-a48e-7a99bc9b4784",
 						"exec": [
 							"pm.test(\"insert plugin s3\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -349,7 +343,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8db73e66-6d03-4cc2-8cb5-f20ed7f82579",
 						"exec": [
 							"pm.test(\"create system var (s3 server url)\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -410,7 +403,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a36188e1-dc3e-4df0-aaab-b96f307ddedd",
 						"exec": [
 							"pm.test(\"create system var (s3 secrect key)\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -471,7 +463,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c4c1462b-f3d9-4018-8401-5c18a3c6652f",
 						"exec": [
 							"pm.test(\"create system var (s3 access key)\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -532,7 +523,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d4fc3837-a3a7-4b63-bf3e-018d5884881f",
 						"exec": [
 							"pm.test(\"update core_addr var)\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -545,7 +535,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "afc5b0c0-cdc3-40cc-9559-9af9e73181a8",
 						"exec": [
 							""
 						],
@@ -627,7 +616,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "305625a1-1f1c-4d3d-8b5b-8930361c53de",
 						"exec": [
 							"pm.test(\"update gateway server url var)\", function () {",
 							"    var jsonData = pm.response.json();",
@@ -640,7 +628,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "dfadfac0-6651-42a2-bb52-92e4a29fc5ff",
 						"exec": [
 							""
 						],
@@ -698,7 +685,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[{\"id\":\"global__GATEWAY_URL\",\"defaultValue\":\"http://{{wecube_host}}:19110\",\"name\":\"GATEWAY_URL\",\"scope\":\"global\",\"source\":\"system\",\"status\":\"active\"}]"
+					"raw": "[{\"id\":\"system__global__GATEWAY_URL\",\"defaultValue\":\"http://{{wecube_host}}:19110\",\"name\":\"GATEWAY_URL\",\"scope\":\"global\",\"source\":\"system\",\"status\":\"active\"}]"
 				},
 				"url": {
 					"raw": "http://{{domain}}/platform/v1/system-variables/update",
@@ -716,6 +703,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
